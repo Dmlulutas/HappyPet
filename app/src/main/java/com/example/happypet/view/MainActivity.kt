@@ -42,7 +42,7 @@ class MainActivity : ComponentActivity() {
             HomePageTheme {
                 Surface {
                     Navigation(this)
-                    GetRetrofitData()
+                    //GetRetrofitData()
                 }
             }
         }
