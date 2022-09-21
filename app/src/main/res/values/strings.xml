@@ -1,0 +1,15 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">HappyPet</string>
+    <string name="helping_stray_animals">Helping Stray Animals</string>
+    <string name="login" tools:ignore="ExtraTranslation">Login</string>
+    <string name="forgot" tools:ignore="ExtraTranslation">Forgot Password</string>
+    <string name="forgot_question">Forgot Password</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="email">Email</string>
+    <string name="signup_here">Signup here</string>
+    <string name="signup">Signup</string>
+    <string name="settings">Settings</string>
+
+
+</resources>
