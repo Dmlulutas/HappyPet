@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.zIndex
 import com.example.happypet.view.theme.darkBlue
 import kotlinx.coroutines.launch
 
@@ -24,7 +25,8 @@ fun DrawerMenu(onMenuItemClick: () -> Unit) {
         .background(darkBlue)
         .fillMaxSize()
     Scaffold(
-        Modifier.fillMaxSize(),
+        Modifier.fillMaxSize()
+                .zIndex(10f),
 
         scaffoldState = scaffoldState,
         topBar = {

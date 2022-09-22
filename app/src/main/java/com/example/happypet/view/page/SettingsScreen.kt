@@ -1,3 +1,4 @@
+import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.MaterialTheme
@@ -14,17 +15,27 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavHostController
 import com.example.happypet.R
+import com.example.happypet.factory.GreenNotification
+import com.example.happypet.factory.NotificationFactory
 import com.example.happypet.view.page.BaseScreen
 import com.example.happypet.view.theme.springGreen
 import com.example.happypet.viewModel.SettingsViewModel
 
 class SettingsPage(
     override var backstack: String?,
-    override var navController: NavHostController
+    override var navController: NavHostController,
 ) : BaseScreen() {
 
+    init {
+        //Factory Sample
+        val redNotif =
+            NotificationFactory.createFactory<GreenNotification>("1", "Dog food supply", 1, true)
+        val notif = redNotif.makeNotif()
+        Log.d("created notif", notif.toString())
+    }
+
     @Composable
-    override fun GetUI(viewModel: ViewModel,owner: LifecycleOwner) {
+    override fun GetUI(viewModel: ViewModel, owner: LifecycleOwner) {
         val homeViewModel = viewModel as SettingsViewModel
         Box(modifier = Modifier.fillMaxSize()) {
             ClickableText(
@@ -51,9 +62,10 @@ class SettingsPage(
 
 
     fun onClick(model: ViewModel) {
-        val setViewModel : SettingsViewModel = model as SettingsViewModel
+        val setViewModel: SettingsViewModel = model as SettingsViewModel
         setViewModel.changeParams("test")
     }
+
 
     @Composable
     fun TextContent(name: String) {

@@ -16,6 +16,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.zIndex
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavHostController
@@ -71,7 +72,7 @@ class HomeScreen(
     fun ListCharacter(characters: List<Character>) {
         LazyColumn(
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
-            modifier = Modifier.padding(vertical = 80.dp)
+            modifier = Modifier.padding(vertical = 80.dp).zIndex(1f)
         ) {
             items(
                 items = characters,
