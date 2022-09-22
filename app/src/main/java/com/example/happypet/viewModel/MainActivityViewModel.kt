@@ -1,8 +1,6 @@
 package com.example.happypet.viewModel
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.happypet.model.Character
 import com.example.happypet.repository.RetrofitRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
