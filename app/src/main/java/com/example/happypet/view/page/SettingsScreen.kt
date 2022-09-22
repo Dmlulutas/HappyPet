@@ -15,8 +15,8 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavHostController
 import com.example.happypet.R
-import com.example.happypet.factory.GreenNotification
-import com.example.happypet.factory.NotificationFactory
+import com.example.happypet.abstractFactory.Gold
+import com.example.happypet.abstractFactory.SubscriptionFactory
 import com.example.happypet.view.page.BaseScreen
 import com.example.happypet.view.theme.springGreen
 import com.example.happypet.viewModel.SettingsViewModel
@@ -26,13 +26,6 @@ class SettingsPage(
     override var navController: NavHostController,
 ) : BaseScreen() {
 
-    init {
-        //Factory Sample
-        val redNotif =
-            NotificationFactory.createFactory<GreenNotification>("1", "Dog food supply", 1, true)
-        val notif = redNotif.makeNotif()
-        Log.d("created notif", notif.toString())
-    }
 
     @Composable
     override fun GetUI(viewModel: ViewModel, owner: LifecycleOwner) {
@@ -43,7 +36,7 @@ class SettingsPage(
                 modifier = Modifier
                     .align(Alignment.BottomCenter)
                     .padding(20.dp),
-                onClick = { onClick(homeViewModel) },
+                onClick = { changeText(homeViewModel) },
                 style = TextStyle(
                     fontSize = 24.sp,
                     color = springGreen
@@ -61,7 +54,7 @@ class SettingsPage(
     }
 
 
-    fun onClick(model: ViewModel) {
+    private fun changeText(model: ViewModel) {
         val setViewModel: SettingsViewModel = model as SettingsViewModel
         setViewModel.changeParams("test")
     }
@@ -81,4 +74,13 @@ class SettingsPage(
 
         }
     }
+
+
+    //Abstract Factory Sample
+    private fun createSubscription(){
+        val goldSubscription = SubscriptionFactory.createFactory<Gold>()
+        val subscription = goldSubscription.makeSubscription()
+        Log.d("created subscription", subscription.toString())
+    }
+
 }
