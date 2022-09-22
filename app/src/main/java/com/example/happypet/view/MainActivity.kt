@@ -11,11 +11,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.happypet.model.CharResponse
 import com.example.happypet.model.Character
-import com.example.happypet.ui.theme.HomePageTheme
+import com.example.happypet.view.theme.HomePageTheme
 import com.example.happypet.util.Navigation
 import com.example.happypet.viewModel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint

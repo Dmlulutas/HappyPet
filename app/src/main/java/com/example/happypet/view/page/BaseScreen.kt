@@ -1,15 +1,9 @@
-package com.example.happypet.ui.page
+package com.example.happypet.view.page
 
 import androidx.compose.runtime.Composable
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavHostController
-import com.example.happypet.util.Screen
-import com.example.happypet.viewModel.HomeViewModel
-import com.example.happypet.viewModel.SettingsViewModel
-import kotlin.properties.ReadOnlyProperty
 
 abstract class BaseScreen() {
 

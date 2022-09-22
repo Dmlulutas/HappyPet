@@ -1,4 +1,4 @@
-package com.example.happypet.ui.page.auth
+package com.example.happypet.view.page.auth
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -16,8 +16,8 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavHostController
 import com.example.happypet.R
-import com.example.happypet.ui.component.CustomTopAppBar
-import com.example.happypet.ui.page.BaseScreen
+import com.example.happypet.view.component.CustomTopAppBar
+import com.example.happypet.view.page.BaseScreen
 import com.example.happypet.viewModel.HomeViewModel
 
 class ForgotPage(

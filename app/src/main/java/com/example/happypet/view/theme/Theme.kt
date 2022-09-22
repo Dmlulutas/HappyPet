@@ -1,4 +1,4 @@
-package com.example.happypet.ui.theme
+package com.example.happypet.view.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

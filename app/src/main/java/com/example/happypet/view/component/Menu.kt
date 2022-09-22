@@ -1,4 +1,4 @@
-package com.example.happypet.ui.component
+package com.example.happypet.view.component
 
 import android.content.Context
 import android.widget.Toast
@@ -7,13 +7,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Call
-import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.example.happypet.ui.theme.darkBlue
-import com.example.happypet.ui.theme.springGreen
+import com.example.happypet.view.theme.darkBlue
+import com.example.happypet.view.theme.springGreen
 
 @Composable
 fun Menu (context: Context) {
@@ -28,13 +26,13 @@ fun Menu (context: Context) {
         color = darkBlue
     ) {
 
-        topBar(context)
+        TopBar(context)
 
     }
 }
 
 @Composable
-private fun topBar (context: Context){
+private fun TopBar (context: Context){
 
     var mDisplayMenu =false
     var fragmentName = "";

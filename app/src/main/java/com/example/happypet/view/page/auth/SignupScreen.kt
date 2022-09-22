@@ -1,4 +1,4 @@
-package com.example.happypet.ui.page.auth
+package com.example.happypet.view.page.auth
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -26,11 +26,11 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavHostController
 import com.example.happypet.R
-import com.example.happypet.ui.page.BaseScreen
-import com.example.happypet.ui.theme.Shapes
-import com.example.happypet.ui.theme.black100
-import com.example.happypet.ui.theme.darkBlue
-import com.example.happypet.ui.theme.whitesmoke
+import com.example.happypet.view.page.BaseScreen
+import com.example.happypet.view.theme.Shapes
+import com.example.happypet.view.theme.black100
+import com.example.happypet.view.theme.darkBlue
+import com.example.happypet.view.theme.whitesmoke
 import com.example.happypet.util.Screen
 import com.example.happypet.viewModel.HomeViewModel
 

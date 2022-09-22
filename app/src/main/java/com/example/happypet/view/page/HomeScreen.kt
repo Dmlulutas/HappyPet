@@ -1,12 +1,9 @@
-package com.example.happypet.ui.page
+package com.example.happypet.view.page
 
 import android.widget.Toast
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.CircularProgressIndicator
@@ -17,24 +14,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavHostController
-import coil.compose.AsyncImage
 import coil.compose.SubcomposeAsyncImage
-import coil.request.ImageRequest
-import com.example.happypet.R
 import com.example.happypet.model.Character
-import com.example.happypet.ui.component.DrawerMenu
-import com.example.happypet.ui.theme.Shapes
+import com.example.happypet.view.component.DrawerMenu
 import com.example.happypet.util.Screen
 import com.example.happypet.viewModel.HomeViewModel
 
@@ -47,11 +34,11 @@ class HomeScreen(
 
 
     @Composable
-    override fun GetUI(viewModel: ViewModel, _owner: LifecycleOwner) {
+    override fun GetUI(viewModel: ViewModel, owner: LifecycleOwner) {
         Toast.makeText(LocalContext.current, "email $backstack", Toast.LENGTH_LONG).show()
 
         homeViewModel = viewModel as HomeViewModel
-        owner = _owner
+        this.owner = owner
 
         Scaffold() {
 

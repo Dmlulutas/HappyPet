@@ -1,4 +1,4 @@
-package com.example.happypet.ui.page.auth
+package com.example.happypet.view.page.auth
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -30,11 +30,11 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavHostController
 import com.example.happypet.R
-import com.example.happypet.ui.component.state.EmailState
-import com.example.happypet.ui.component.state.PasswordState
-import com.example.happypet.ui.page.BaseScreen
-import com.example.happypet.ui.theme.*
+import com.example.happypet.view.component.state.EmailState
+import com.example.happypet.view.component.state.PasswordState
+import com.example.happypet.view.page.BaseScreen
 import com.example.happypet.util.Screen
+import com.example.happypet.view.theme.*
 import com.example.happypet.viewModel.HomeViewModel
 
 class LoginPage (

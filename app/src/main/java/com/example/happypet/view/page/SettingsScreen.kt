@@ -14,8 +14,8 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavHostController
 import com.example.happypet.R
-import com.example.happypet.ui.page.BaseScreen
-import com.example.happypet.ui.theme.springGreen
+import com.example.happypet.view.page.BaseScreen
+import com.example.happypet.view.theme.springGreen
 import com.example.happypet.viewModel.SettingsViewModel
 
 class SettingsPage(

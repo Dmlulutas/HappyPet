@@ -1,4 +1,4 @@
-package com.example.happypet.ui.component.state
+package com.example.happypet.view.component.state
 
 import java.util.regex.Pattern
 
@@ -9,7 +9,7 @@ class PasswordState: TextFieldState(
 
 }
 
-private val PWD_PATTERN = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$"
+private val PWD_PATTERN by lazy { "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$" }
 
 private fun pwdValidate(text:String) :Boolean{
     return Pattern.matches(PWD_PATTERN,text)

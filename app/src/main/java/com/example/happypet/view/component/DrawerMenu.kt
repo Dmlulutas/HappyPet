@@ -1,4 +1,4 @@
-package com.example.happypet.ui.component
+package com.example.happypet.view.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
@@ -12,8 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import com.example.happypet.ui.theme.darkBlue
-import com.example.happypet.util.Screen
+import com.example.happypet.view.theme.darkBlue
 import kotlinx.coroutines.launch
 
 @Composable

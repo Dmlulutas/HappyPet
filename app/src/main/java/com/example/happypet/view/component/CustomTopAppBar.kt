@@ -1,4 +1,4 @@
-package com.example.happypet.ui.component
+package com.example.happypet.view.component
 
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton

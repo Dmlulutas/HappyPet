@@ -9,10 +9,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.happypet.ui.page.HomeScreen
-import com.example.happypet.ui.page.auth.ForgotPage
-import com.example.happypet.ui.page.auth.LoginPage
-import com.example.happypet.ui.page.auth.SignupPage
+import com.example.happypet.view.page.HomeScreen
+import com.example.happypet.view.page.auth.ForgotPage
+import com.example.happypet.view.page.auth.LoginPage
+import com.example.happypet.view.page.auth.SignupPage
 import com.example.happypet.view.MainActivity
 import com.example.happypet.viewModel.HomeViewModel
 import com.example.happypet.viewModel.SettingsViewModel
