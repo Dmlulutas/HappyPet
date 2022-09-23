@@ -6,9 +6,9 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.Button
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -140,7 +141,25 @@ class LoginPage (
             visualTransformation = if(showPwd.value) {VisualTransformation.None} else {PasswordVisualTransformation()},
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
             onValueChange = {it-> onPasswordChange(it) },
-            isError = error!=null
+            isError = error!=null,
+            trailingIcon = {
+                val (icon, iconColor) = if (showPwd.value) {
+                    Pair(
+                        Icons.Filled.Visibility,
+                        colorResource(id = R.color.darkBlue)
+                    )
+                } else {
+                    Pair(Icons.Filled.VisibilityOff, colorResource(id = R.color.white))
+                }
+
+                IconButton(onClick = { showPwd.value = !showPwd.value }) {
+                    Icon(
+                        icon,
+                        contentDescription = "Visibility",
+                        tint = iconColor
+                    )
+                }
+            }
         )
 
         val errorMessage : String = error ?: ""

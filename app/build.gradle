@@ -111,7 +111,9 @@ dependencies {
     implementation "com.google.dagger:hilt-android:$dagger_version"
     kapt "com.google.dagger:hilt-android-compiler:$dagger_version"
 
-
+    //Icons
+    implementation "androidx.compose.material:material-icons-extended:$compose_version"
+    
     // Material Design 3
     //implementation("androidx.compose.material3:material3:1.0.0-beta02")
     //implementation("androidx.compose.material3:material3-window-size-class:1.0.0-beta02")
