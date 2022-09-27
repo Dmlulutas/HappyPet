@@ -6,7 +6,6 @@
 
 
 # Features
- <img src="./images/page_home.png" width="350" title="hover text">
 
 - Kotlin
 - MVVM
