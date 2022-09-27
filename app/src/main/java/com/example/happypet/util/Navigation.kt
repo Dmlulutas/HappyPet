@@ -9,6 +9,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.example.happypet.model.enums.Screen
 import com.example.happypet.view.page.HomeScreen
 import com.example.happypet.view.page.auth.ForgotPage
 import com.example.happypet.view.page.auth.LoginPage

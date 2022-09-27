@@ -1,4 +1,4 @@
-package com.example.happypet.factory
+package com.example.happypet.model.enums
 
 
 enum class HelpType {

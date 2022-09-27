@@ -11,7 +11,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavHostController
 import com.example.happypet.R
-import com.example.happypet.util.Screen
+import com.example.happypet.model.enums.Screen
 import com.example.happypet.view.component.ConditionalButton
 import com.example.happypet.view.component.EmailField
 import com.example.happypet.view.component.Title

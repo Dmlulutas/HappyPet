@@ -1,4 +1,4 @@
-package com.example.happypet.util
+package com.example.happypet.model.enums
 
 sealed class Screen(val route:String){
     object HomeScreen : Screen("home_screen")

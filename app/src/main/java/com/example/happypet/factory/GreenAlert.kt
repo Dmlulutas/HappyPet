@@ -1,6 +1,7 @@
 package com.example.happypet.factory
 
 import android.util.Log
+import com.example.happypet.model.enums.HelpType
 
 class GreenAlert() : Alert {
     override fun setAddress(email: String) {

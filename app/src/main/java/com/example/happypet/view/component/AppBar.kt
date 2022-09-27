@@ -18,6 +18,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.happypet.view.theme.darkwhite
+import com.example.happypet.view.theme.gold
 import com.example.happypet.view.theme.gray200
 import com.example.happypet.view.theme.springGreen
 
@@ -30,16 +31,16 @@ fun AppBar(
 
     TopAppBar(
         title = {
-            Text(text = mTitle, fontSize = 24.sp)
+            Text(text = mTitle, fontSize = 22.sp)
         },
         backgroundColor = Color.Black,
-        contentColor = darkwhite,
+        contentColor = gold,
         navigationIcon = {
             IconButton(
-                modifier = Modifier.width(30.dp),
+                modifier = Modifier.width(35.dp),
                 onClick = onNavigationIconClick) {
                 Icon(
-                    tint = darkwhite,
+                    tint = gold,
                     imageVector = Icons.Default.Menu,
                     contentDescription = "Toggle drawer"
                 )

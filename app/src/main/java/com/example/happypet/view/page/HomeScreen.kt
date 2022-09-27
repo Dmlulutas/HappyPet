@@ -1,29 +1,34 @@
 package com.example.happypet.view.page
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Scaffold
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.rememberScaffoldState
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavHostController
 import com.example.happypet.model.Character
 import com.example.happypet.model.MenuItem
-import com.example.happypet.util.Screen
+import com.example.happypet.model.enums.Screen
+import com.example.happypet.model.enums.TabbarItems
+import com.example.happypet.view.MainActivity
 import com.example.happypet.view.component.AppBar
-import com.example.happypet.view.component.CharacterList
+import com.example.happypet.view.component.CardDetail
+import com.example.happypet.view.component.CharacterCard
 import com.example.happypet.view.component.NavigationDrawer
-import com.example.happypet.view.component.TabbarItems
 import com.example.happypet.viewModel.HomeViewModel
 import kotlinx.coroutines.launch
 
@@ -34,17 +39,23 @@ class HomeScreen(
 
     lateinit var homeViewModel: HomeViewModel
     lateinit var owner: LifecycleOwner
+    lateinit var openCardDetail: MutableState<Boolean>
+    lateinit var selectedCharacter: MutableState<Character?>
+
 
     @Composable
     override fun GetUI(viewModel: ViewModel, owner: LifecycleOwner) {
         // Toast.makeText(LocalContext.current, "email $backstack", Toast.LENGTH_LONG).show()
 
         homeViewModel = viewModel as HomeViewModel
-        this.owner = owner
+        this.owner = owner as MainActivity
 
         val context = LocalContext.current;
         val scaffoldState = rememberScaffoldState()
         val scope = rememberCoroutineScope()
+
+        openCardDetail = remember { mutableStateOf(false) }
+        selectedCharacter = remember { mutableStateOf(null) }
 
         Scaffold(
             Modifier
@@ -62,14 +73,19 @@ class HomeScreen(
                 )
             },
             drawerGesturesEnabled = scaffoldState.drawerState.isOpen,
-            drawerContent = {DrawerContent() }
+            drawerContent = { DrawerContent() }
         ) {
-            CharacterList(getListData(homeViewModel))
+
+            if (openCardDetail.value && selectedCharacter.value != null) {
+                CardDetail(selectedCharacter, openDialog = openCardDetail)
+            }
+            CharacterList()
+
         }
     }
 
     @Composable
-    private fun DrawerContent(){
+    private fun DrawerContent() {
         val bodyModifier: Modifier = Modifier
             .zIndex(8f)
             .fillMaxSize()
@@ -83,10 +99,22 @@ class HomeScreen(
     }
 
     @Composable
-    private fun getListData(homeViewModel: HomeViewModel): List<Character> {
+    private fun CharacterList() {
         homeViewModel.getCharacters(1)
         val characters by homeViewModel.characterFlow.collectAsState()
-        return characters.toList()
+
+        LazyColumn(
+            contentPadding = PaddingValues(horizontal = 8.dp, vertical = 8.dp),
+            modifier = Modifier
+                .zIndex(10f)
+                .background(Color.Black)
+        ) {
+            items(
+                items = characters,
+                itemContent = {
+                    CharacterCard(character = it, onClickCard = { selectCharacter(it) })
+                })
+        }
     }
 
     private fun getDrawerMenuItems(): List<MenuItem> {
@@ -116,6 +144,11 @@ class HomeScreen(
         if (it.id == TabbarItems.SETTINGS) {
             navController.navigate(Screen.SettingsScreen.route)
         }
+    }
+
+    private fun selectCharacter(selectChar: Character) {
+        openCardDetail.value = true
+        selectedCharacter.value = selectChar
     }
 }
 
