@@ -28,13 +28,13 @@ class MainActivity : ComponentActivity() {
         coroutineContext, throwable -> Log.d("MainActivity",throwable.toString())
     }
 
-
     lateinit var homeViewModel: HomeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         homeViewModel = ViewModelProvider(this@MainActivity)[HomeViewModel::class.java]
+
 
         setContent {
             HomePageTheme {

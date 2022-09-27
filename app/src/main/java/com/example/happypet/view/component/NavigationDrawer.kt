@@ -10,12 +10,13 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.happypet.view.theme.darkGreen
-import com.example.happypet.view.theme.springGreen
+import com.example.happypet.model.MenuItem
+import com.example.happypet.view.theme.*
 
 class NavigationDrawer {
 
@@ -24,11 +25,18 @@ class NavigationDrawer {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(darkGreen)
+                .background(contentColor)
                 .padding(vertical = 30.dp),
             contentAlignment = Alignment.Center
         ) {
-            Text(text = "Account", style = TextStyle(color = springGreen, textAlign = TextAlign.Left, fontSize = 34.sp))
+            Text(
+                text = "Account",
+                style = TextStyle(
+                    color = whitesmoke,
+                    textAlign = TextAlign.Left,
+                    fontSize = 34.sp
+                )
+            )
         }
     }
 
@@ -36,11 +44,11 @@ class NavigationDrawer {
     fun DrawerBody(
         items: List<MenuItem>,
         modifier: Modifier = Modifier,
-        itemTextStyle: TextStyle = TextStyle(fontSize = 18.sp, color = springGreen),
-        onItemClick: (MenuItem) -> Unit
+        itemTextStyle: TextStyle = TextStyle(fontSize = 18.sp, color = Color.Black),
+        onItemClick: (MenuItem) -> Unit,
     ) {
 
-        LazyColumn(modifier) {
+        LazyColumn(modifier.background(Color.Black)) {
             items(items) { item ->
                 Row(
                     modifier = Modifier
@@ -53,12 +61,13 @@ class NavigationDrawer {
                     Icon(
                         imageVector = item.icon,
                         contentDescription = item.contentDescription,
-                        tint = springGreen
+                        tint = gray100
                     )
                     Spacer(modifier = Modifier.width(16.dp))
                     Text(
                         text = item.title,
                         style = itemTextStyle,
+                        color = gray200,
                         modifier = Modifier.weight(1f)
                     )
                 }

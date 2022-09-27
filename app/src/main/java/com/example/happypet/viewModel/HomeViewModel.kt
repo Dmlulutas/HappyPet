@@ -30,7 +30,6 @@ class HomeViewModel @Inject constructor(private val retrofitRepository: Retrofit
     val characterFlow = _characterFlow.asStateFlow()
 
 
-
     fun getCharacters(page: Int) {
         viewModelScope.launch {
             retrofitRepository.getCharacters(page).let {

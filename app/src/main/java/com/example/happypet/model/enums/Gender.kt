@@ -1,4 +1,4 @@
-package com.example.happypet.model
+package com.example.happypet.model.enums
 
 enum class Gender {
     Female, Male, unknown
