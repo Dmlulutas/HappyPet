@@ -1,4 +1,4 @@
-package com.example.happypet.view.component.state
+package com.example.happypet.view.page.auth.state
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

@@ -3,6 +3,7 @@ package com.example.happypet.util
 sealed class Screen(val route:String){
     object HomeScreen : Screen("home_screen")
     object SettingsScreen : Screen("settings_screen")
+    object CreateNavigation: Screen("create_navigation")
     object LoginScreen : Screen("login")
     object ForgotScreen: Screen("forgot")
     object SignupScreen: Screen("signup")

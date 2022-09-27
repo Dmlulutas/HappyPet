@@ -12,6 +12,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.ViewModelProvider
+import com.example.happypet.factory.AlertFactory
+import com.example.happypet.factory.AlertType
+import com.example.happypet.factory.RedAlert
 import com.example.happypet.model.Character
 import com.example.happypet.view.theme.HomePageTheme
 import com.example.happypet.util.Navigation
@@ -28,13 +31,13 @@ class MainActivity : ComponentActivity() {
         coroutineContext, throwable -> Log.d("MainActivity",throwable.toString())
     }
 
-
     lateinit var homeViewModel: HomeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         homeViewModel = ViewModelProvider(this@MainActivity)[HomeViewModel::class.java]
+
 
         setContent {
             HomePageTheme {

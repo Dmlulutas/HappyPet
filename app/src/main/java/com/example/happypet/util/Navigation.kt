@@ -14,6 +14,8 @@ import com.example.happypet.view.page.auth.ForgotPage
 import com.example.happypet.view.page.auth.LoginPage
 import com.example.happypet.view.page.auth.SignupPage
 import com.example.happypet.view.MainActivity
+import com.example.happypet.view.page.CreateNavPage
+import com.example.happypet.viewModel.CreateNavViewModel
 import com.example.happypet.viewModel.HomeViewModel
 import com.example.happypet.viewModel.SettingsViewModel
 
@@ -26,6 +28,7 @@ fun Navigation(owner: MainActivity) {
 
         val homeViewModel = ViewModelProvider(owner)[HomeViewModel::class.java]
         val settingsViewModel = ViewModelProvider(owner)[SettingsViewModel::class.java]
+        val createNavViewModel =ViewModelProvider(owner)[CreateNavViewModel::class.java]
 
         composable(
             route = Screen.HomeScreen.route + "/{userId}",
@@ -52,6 +55,9 @@ fun Navigation(owner: MainActivity) {
             SettingsPage(null, navController).GetUI(settingsViewModel,owner)
         }
 
+        composable(Screen.CreateNavigation.route) {
+            CreateNavPage(null, navController).GetUI(createNavViewModel,owner)
+        }
     }
 
 }

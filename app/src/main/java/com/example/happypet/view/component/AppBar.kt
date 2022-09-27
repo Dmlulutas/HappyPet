@@ -2,13 +2,9 @@ package com.example.happypet.view.component
 
 import android.content.Context
 import android.widget.Toast
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.Notifications
+import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import com.example.happypet.view.theme.darkBlue
@@ -36,14 +32,31 @@ fun AppBar(
             }
         },
         actions = {
-            // Creating Icon button favorites, on click
-            // would create a Toast message
-            IconButton(
-                onClick = {
-                    Toast.makeText(context, "Alerts", Toast.LENGTH_SHORT).show()
-                }) {
-                Icon(Icons.Default.Notifications, "Alerts", tint = Color.Red)
-            }
+
+            ExtendedFloatingActionButton(
+                onClick = onNavigationIconClick,
+                icon = {
+                    Icon(
+                        Icons.Filled.Warning,
+                        contentDescription = "Red Alarm",
+                        tint = Color.Red
+                    )
+                },
+                text = {}
+            )
+
+
+            ExtendedFloatingActionButton(
+                onClick = onNavigationIconClick,
+                icon = {
+                    Icon(
+                        Icons.Filled.Warning,
+                        contentDescription = "Green Alarm",
+                        tint = springGreen
+                    )
+                },
+                text = {}
+            )
 
         },
     )

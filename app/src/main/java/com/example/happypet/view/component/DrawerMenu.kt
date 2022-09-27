@@ -1,6 +1,7 @@
 package com.example.happypet.view.component
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Scaffold
 import androidx.compose.material.icons.Icons
@@ -13,6 +14,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.zIndex
+import com.example.happypet.model.MenuItem
 import com.example.happypet.view.theme.darkBlue
 import kotlinx.coroutines.launch
 
@@ -22,8 +24,10 @@ fun DrawerMenu(onMenuItemClick: () -> Unit) {
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()
     val bodyModifier: Modifier = Modifier
+        .zIndex(8f)
         .background(darkBlue)
         .fillMaxSize()
+
     Scaffold(
         Modifier.fillMaxSize()
                 .zIndex(10f),
@@ -75,5 +79,6 @@ fun DrawerMenu(onMenuItemClick: () -> Unit) {
     ) {
         //MainPage(null)
     }
+
 
 }

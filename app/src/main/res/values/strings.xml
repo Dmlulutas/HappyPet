@@ -10,6 +10,6 @@
     <string name="signup_here">Signup here</string>
     <string name="signup">Signup</string>
     <string name="settings">Settings</string>
-
-
+    <string name="pwd_min_8_char">Please enter at least one special character, number, letter and min 8 characters</string>
+    <string name="confirm_pwd_error_msg">Passwords do not match</string>
 </resources>
