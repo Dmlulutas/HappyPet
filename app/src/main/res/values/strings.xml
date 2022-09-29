@@ -7,6 +7,14 @@
     <string name="password">Password</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="address">Address</string>
+    <string name="note">Note</string>
+    <string name="urgency">Urgency</string>
+    <string name="help_type">Help Type</string>
+    <string name="create_alert">Create Alert</string>
+    <string name="red_alert_desc">If you need help, you can create an "Red Alert" here by entering the urgency status.</string>
+    <string name="green_alert_desc">If you want to volunteer for stray animals, you can create a "Green Alert" here by choosing the form of help.</string>
     <string name="signup_here">Signup here</string>
     <string name="signup">Signup</string>
     <string name="settings">Settings</string>

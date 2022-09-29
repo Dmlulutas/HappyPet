@@ -65,6 +65,7 @@ class MainActivity : ComponentActivity() {
                     scaffoldState = scaffoldState,
                     topBar = {
                         AppBar(
+                            navController = navController,
                             context = context,
                             onNavigationIconClick = {
                                 scope.launch {
@@ -84,7 +85,6 @@ class MainActivity : ComponentActivity() {
                     MainNavigation(this@MainActivity, navController = navController)
 
                 }
-
             }
         }
     }
