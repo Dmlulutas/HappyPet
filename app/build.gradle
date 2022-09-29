@@ -51,7 +51,7 @@ android {
 dependencies {
 
     def logging_version = "4.3.1"
-    def nav_version = "2.5.1"
+    def nav_version = "2.5.2"
     def lifecycle_version = "2.3.1"
     def retrofit_version = "2.9.0"
     def dagger_version ="2.43.1"
@@ -83,9 +83,9 @@ dependencies {
     // - - Navigation
     implementation "androidx.navigation:navigation-compose:$nav_version"
 
-
     // - - ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+
     // - - LiveData
     //noinspection GradleDependency
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"

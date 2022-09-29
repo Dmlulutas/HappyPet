@@ -3,10 +3,12 @@ package com.example.happypet.factory
 import android.util.Log
 
 interface Alert {
-    public fun setAddress(email: String)
-    public fun setNote(note:String)
 
-    public fun createAlert() {
+    fun owner(name:String)
+    fun setAddress(email: String)
+    fun setNote(note: String)
+
+    fun createAlert() {
         Log.d("Alert::", "Create a alert")
     }
 }

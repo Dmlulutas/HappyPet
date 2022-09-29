@@ -23,18 +23,18 @@ fun CharacterCard(character: Character, onClickCard: (it:Character) -> Unit) {
     Card(
         onClick = { onClickCard(character) },
         modifier = Modifier
-            .height(90.dp)
-            .padding(vertical = 8.dp)
+            .height(80.dp)
+            .padding(vertical = 4.dp)
             .border(.5.dp, gold,RoundedCornerShape(25.dp))
             .fillMaxWidth(),
         elevation = 8.dp,
-        shape = RoundedCornerShape(25.dp)) {
+        shape = RoundedCornerShape(20.dp)) {
         Row(
             modifier = Modifier
                 .background(Color.Black)
         ) {
             CharacterImage(character.name,character.image)
-            Column(modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp)) {
+            Column(modifier = Modifier.padding(horizontal = 20.dp, vertical = 20.dp)) {
                 Text(text = character.name,
                     style = MaterialTheme.typography.subtitle1,
                     color = whitesmoke)

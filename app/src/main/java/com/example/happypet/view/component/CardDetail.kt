@@ -26,7 +26,6 @@ val style = ComponentsStyle()
 @Composable
 fun CardDetail(character: MutableState<Character?>, openDialog: MutableState<Boolean>) {
 
-
     Dialog(
         onDismissRequest = {
             openDialog.value = false
@@ -38,7 +37,7 @@ fun CardDetail(character: MutableState<Character?>, openDialog: MutableState<Boo
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = style.column,
 
-        ) {
+            ) {
             Card(
                 modifier = style.card,
                 elevation = 8.dp,
@@ -133,7 +132,7 @@ fun CancelBtn(openDialog: MutableState<Boolean>) {
 
 class ComponentsStyle() {
     val column: Modifier = Modifier
-        .background(Color.Black)
+        .background(Color.Black, RoundedCornerShape(30.dp))
         .clip(RoundedCornerShape(30.dp))
 
     val card: Modifier = Modifier
@@ -142,13 +141,13 @@ class ComponentsStyle() {
         .clip(RoundedCornerShape(20.dp))
 
     val textKey = TextStyle(
-        color = gold.copy(.5f),
+        color = gold.copy(.7f),
         fontWeight = FontWeight.Bold,
         fontSize = 20.sp
     )
 
     val textValue = TextStyle(
-        color = whitesmoke.copy(.5f),
+        color = whitesmoke.copy(.7f),
         fontSize = 20.sp
     )
 

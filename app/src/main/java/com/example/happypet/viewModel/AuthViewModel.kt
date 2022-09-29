@@ -6,6 +6,11 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class CreateNavViewModel @Inject constructor(private val retrofitRepository: RetrofitRepository) :
+class AuthViewModel @Inject constructor(private val retrofitRepository: RetrofitRepository) :
     ViewModel() {
+
+    fun changeActivity( change: () -> Unit ) {
+
+    }
+
 }

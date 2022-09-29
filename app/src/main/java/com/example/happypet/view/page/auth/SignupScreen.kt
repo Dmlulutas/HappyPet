@@ -22,16 +22,16 @@ import com.example.happypet.view.page.BaseScreen
 import com.example.happypet.view.page.auth.state.EmailState
 import com.example.happypet.view.page.auth.state.PasswordState
 import com.example.happypet.view.theme.darkBlue
-import com.example.happypet.viewModel.HomeViewModel
+import com.example.happypet.viewModel.AuthViewModel
 
 class SignupPage(
     override var backstack: String?,
-    override var navController: NavHostController,
+    var navController: NavHostController,
 ) : BaseScreen() {
 
     @Composable
     override fun GetUI(viewModel: ViewModel, owner: LifecycleOwner) {
-        val homeViewModel = viewModel as HomeViewModel
+        val homeViewModel = viewModel as AuthViewModel
         SignupElements()
     }
 
