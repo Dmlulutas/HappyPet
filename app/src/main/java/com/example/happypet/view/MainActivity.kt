@@ -96,11 +96,12 @@ class MainActivity : ComponentActivity() {
         scaffoldState: ScaffoldState,
         navController: NavHostController,
     ) {
+        val drawerTitle = intent.extras?.getString("email").toString()
         val bodyModifier: Modifier = Modifier
             .zIndex(8f)
             .fillMaxSize()
 
-        NavigationDrawer().DrawerHeader()
+        NavigationDrawer().DrawerHeader(drawerTitle)
         NavigationDrawer().DrawerBody(
             items = getDrawerMenuItems(),
             bodyModifier,

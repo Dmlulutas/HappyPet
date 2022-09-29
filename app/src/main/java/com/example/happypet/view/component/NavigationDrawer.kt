@@ -21,7 +21,7 @@ import com.example.happypet.view.theme.*
 class NavigationDrawer {
 
     @Composable
-    fun DrawerHeader() {
+    fun DrawerHeader(text:String) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -30,11 +30,11 @@ class NavigationDrawer {
             contentAlignment = Alignment.Center
         ) {
             Text(
-                text = "Account",
+                text = text,
                 style = TextStyle(
                     color = whitesmoke,
                     textAlign = TextAlign.Left,
-                    fontSize = 34.sp
+                    fontSize = 24.sp
                 )
             )
         }
@@ -67,7 +67,7 @@ class NavigationDrawer {
                     Text(
                         text = item.title,
                         style = itemTextStyle,
-                        color = gray200,
+                        color = whitesmoke.copy(.7f),
                         modifier = Modifier.weight(1f)
                     )
                 }
