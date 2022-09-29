@@ -1,5 +1,6 @@
 package com.example.happypet.view.page.auth
 
+import android.content.Intent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.ClickableText
@@ -13,35 +14,42 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavHostController
 import com.example.happypet.R
 import com.example.happypet.model.enums.Screen
+import com.example.happypet.view.AuthActivity
+import com.example.happypet.view.MainActivity
 import com.example.happypet.view.component.ConditionalButton
 import com.example.happypet.view.component.EmailField
 import com.example.happypet.view.component.PasswordField
 import com.example.happypet.view.component.Title
+import com.example.happypet.view.page.BaseScreen
 import com.example.happypet.view.page.auth.state.EmailState
 import com.example.happypet.view.page.auth.state.PasswordState
-import com.example.happypet.view.page.BaseScreen
-import com.example.happypet.view.theme.*
-import com.example.happypet.viewModel.HomeViewModel
+import com.example.happypet.view.theme.darkBlue
+import com.example.happypet.view.theme.darkwhite
+import com.example.happypet.view.theme.springGreen
+import com.example.happypet.viewModel.AuthViewModel
 
 class LoginPage(
+    var owner: AuthActivity,
     override var backstack: String?,
-    override var navController: NavHostController,
+    var navController: NavHostController,
 ) :
     BaseScreen() {
 
     @Composable
     override fun GetUI(viewModel: ViewModel, owner: LifecycleOwner) {
-        val homeViewModel = viewModel as HomeViewModel
+        val authViewModel = viewModel as AuthViewModel
 
         LoginElements()
         SignUpBtn() {
             navController.navigate(Screen.SignupScreen.route)
         }
+
     }
 
     @Composable
@@ -72,10 +80,14 @@ class LoginPage(
             }
 
             ConditionalButton(text = LocalContext.current.getString(R.string.login),
-                enableCondition = true
-                //enableCondition = emailState.isValid() && pwdState.isValid()
+                //enableCondition = true
+                enableCondition = emailState.isValid() && pwdState.isValid()
             ) {
-                navController.navigate(Screen.HomeScreen.withArgs(emailState.text))
+
+                val context = owner
+                val intent = Intent(owner, MainActivity::class.java)
+                context.startActivity(intent)
+                // navController.navigate(Screen.HomeScreen.withArgs(emailState.text))
             }
 
             ForgotPwdBtn() {

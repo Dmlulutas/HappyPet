@@ -9,9 +9,7 @@ abstract class BaseScreen() {
 
     @Composable
     abstract fun GetUI(viewModel: ViewModel, owner: LifecycleOwner)
-
     abstract var backstack: String?
-    abstract var navController: NavHostController
 
 
     /*  fun getViewModel(screen: Screen): Any {

@@ -17,7 +17,6 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(private val retrofitRepository: RetrofitRepository) :
     ViewModel() {
 
-
     private val _characters = MutableLiveData<List<Character>>()
 
 

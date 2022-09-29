@@ -6,7 +6,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Scaffold
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Settings
@@ -24,17 +27,18 @@ import com.example.happypet.model.Character
 import com.example.happypet.model.MenuItem
 import com.example.happypet.model.enums.Screen
 import com.example.happypet.model.enums.TabbarItems
+import com.example.happypet.util.MainNavigation
 import com.example.happypet.view.MainActivity
 import com.example.happypet.view.component.AppBar
 import com.example.happypet.view.component.CardDetail
 import com.example.happypet.view.component.CharacterCard
 import com.example.happypet.view.component.NavigationDrawer
+import com.example.happypet.view.theme.HomePageTheme
 import com.example.happypet.viewModel.HomeViewModel
 import kotlinx.coroutines.launch
 
 class HomeScreen(
     override var backstack: String?,
-    override var navController: NavHostController,
 ) : BaseScreen() {
 
     lateinit var homeViewModel: HomeViewModel
@@ -50,52 +54,13 @@ class HomeScreen(
         homeViewModel = viewModel as HomeViewModel
         this.owner = owner as MainActivity
 
-        val context = LocalContext.current;
-        val scaffoldState = rememberScaffoldState()
-        val scope = rememberCoroutineScope()
-
         openCardDetail = remember { mutableStateOf(false) }
         selectedCharacter = remember { mutableStateOf(null) }
 
-        Scaffold(
-            Modifier
-                .fillMaxSize()
-                .zIndex(10f),
-            scaffoldState = scaffoldState,
-            topBar = {
-                AppBar(
-                    context = context,
-                    onNavigationIconClick = {
-                        scope.launch {
-                            scaffoldState.drawerState.open()
-                        }
-                    }
-                )
-            },
-            drawerGesturesEnabled = scaffoldState.drawerState.isOpen,
-            drawerContent = { DrawerContent() }
-        ) {
-
-            if (openCardDetail.value && selectedCharacter.value != null) {
-                CardDetail(selectedCharacter, openDialog = openCardDetail)
-            }
+        Scaffold() {
             CharacterList()
-
         }
-    }
 
-    @Composable
-    private fun DrawerContent() {
-        val bodyModifier: Modifier = Modifier
-            .zIndex(8f)
-            .fillMaxSize()
-
-        NavigationDrawer().DrawerHeader()
-        NavigationDrawer().DrawerBody(
-            items = getDrawerMenuItems(),
-            bodyModifier,
-            onItemClick = { drawerItemOnClick(it) }
-        )
     }
 
     @Composable
@@ -117,39 +82,12 @@ class HomeScreen(
         }
     }
 
-    private fun getDrawerMenuItems(): List<MenuItem> {
-        return listOf(
-            MenuItem(
-                id = TabbarItems.HOME,
-                title = "Home",
-                contentDescription = "Go to home screen",
-                icon = Icons.Default.Home
-            ),
-            MenuItem(
-                id = TabbarItems.SETTINGS,
-                title = "Settings",
-                contentDescription = "Go to settings screen",
-                icon = Icons.Default.Settings
-            ),
-            MenuItem(
-                id = TabbarItems.HELP,
-                title = "Help",
-                contentDescription = "Get help",
-                icon = Icons.Default.Info
-            ),
-        )
-    }
-
-    private fun drawerItemOnClick(it: MenuItem) {
-        if (it.id == TabbarItems.SETTINGS) {
-            navController.navigate(Screen.SettingsScreen.route)
-        }
-    }
-
     private fun selectCharacter(selectChar: Character) {
         openCardDetail.value = true
         selectedCharacter.value = selectChar
     }
+
+
 }
 
 

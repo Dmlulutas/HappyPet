@@ -1,7 +1,9 @@
 package com.example.happypet.view.page.auth
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -15,20 +17,20 @@ import com.example.happypet.model.enums.Screen
 import com.example.happypet.view.component.ConditionalButton
 import com.example.happypet.view.component.EmailField
 import com.example.happypet.view.component.Title
-import com.example.happypet.view.page.auth.state.EmailState
 import com.example.happypet.view.page.BaseScreen
+import com.example.happypet.view.page.auth.state.EmailState
 import com.example.happypet.view.theme.darkBlue
-import com.example.happypet.viewModel.HomeViewModel
+import com.example.happypet.viewModel.AuthViewModel
 
 class ForgotPage(
     override var backstack: String?,
-    override var navController: NavHostController,
+    var navController: NavHostController,
 ) : BaseScreen() {
 
 
     @Composable
     override fun GetUI(viewModel: ViewModel, owner: LifecycleOwner) {
-        val homeViewModel = viewModel as HomeViewModel
+        val homeViewModel = viewModel as AuthViewModel
         ForgotElements()
     }
 

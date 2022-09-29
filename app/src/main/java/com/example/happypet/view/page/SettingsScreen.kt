@@ -22,8 +22,7 @@ import com.example.happypet.view.theme.springGreen
 import com.example.happypet.viewModel.SettingsViewModel
 
 class SettingsPage(
-    override var backstack: String?,
-    override var navController: NavHostController,
+    override var backstack: String?
 ) : BaseScreen() {
 
 

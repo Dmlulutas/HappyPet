@@ -133,7 +133,7 @@ fun CancelBtn(openDialog: MutableState<Boolean>) {
 
 class ComponentsStyle() {
     val column: Modifier = Modifier
-        .background(Color.Black)
+        .background(Color.Black, RoundedCornerShape(30.dp))
         .clip(RoundedCornerShape(30.dp))
 
     val card: Modifier = Modifier
