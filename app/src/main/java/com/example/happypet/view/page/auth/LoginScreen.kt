@@ -80,8 +80,8 @@ class LoginPage(
             }
 
             ConditionalButton(text = LocalContext.current.getString(R.string.login),
-                //enableCondition = true
-                enableCondition = emailState.isValid() && pwdState.isValid()
+                enableCondition = true
+                //enableCondition = emailState.isValid() && pwdState.isValid()
             ) {
 
                 val context = owner
